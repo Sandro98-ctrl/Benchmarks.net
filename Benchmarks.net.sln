@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashIds.Benchmark", "src\HashIds.Benchmark\HashIds.Benchmark.csproj", "{79EA74F7-5767-4D51-82D9-801EFF5C2DD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashIds.Benchmark", "src\HashIds.Benchmark\HashIds.Benchmark.csproj", "{79EA74F7-5767-4D51-82D9-801EFF5C2DD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regex.Benchmark", "src\Regex.Benchmark\Regex.Benchmark.csproj", "{E1CD6654-26F5-4671-9F00-D2D112E4A5FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{79EA74F7-5767-4D51-82D9-801EFF5C2DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79EA74F7-5767-4D51-82D9-801EFF5C2DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79EA74F7-5767-4D51-82D9-801EFF5C2DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1CD6654-26F5-4671-9F00-D2D112E4A5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1CD6654-26F5-4671-9F00-D2D112E4A5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1CD6654-26F5-4671-9F00-D2D112E4A5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1CD6654-26F5-4671-9F00-D2D112E4A5FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
