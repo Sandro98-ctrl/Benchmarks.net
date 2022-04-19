@@ -6,5 +6,5 @@ public static class StringExtensions
         System.Text.RegularExpressions.Regex.Replace(source, "[^0-9]", string.Empty);
 
     public static string OnlyNumbersLinq(this string source) =>
-        string.Join(string.Empty, source.Where(c => char.IsDigit(c)));
+        string.Concat(source.Where(c => char.IsDigit(c)));
 }

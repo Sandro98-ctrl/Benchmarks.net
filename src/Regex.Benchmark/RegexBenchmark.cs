@@ -8,13 +8,13 @@ public class RegexBenchmark
     private static readonly string Value = "24.864.806/0001-96";
 
     [Benchmark]
-    public string OnlyNumbersRegexExtensions()
+    public string OnlyNumbersRegex()
     {
         return Value.OnlyNumbersRegex();
     }
 
     [Benchmark]
-    public string OnlyNumbersLinqExtension()
+    public string OnlyNumbersLinq()
     {
         return Value.OnlyNumbersLinq();
     }
