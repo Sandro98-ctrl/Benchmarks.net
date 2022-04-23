@@ -11,12 +11,30 @@ public class CustomMapper : IMapper
 
     public TDestination Map<TSource, TDestination>(TSource source)
     {
-        var interfaceType = typeof(IMappingProfile<TSource, TDestination>);
+        var mapper = GetMapper<TSource, TDestination>();
 
-        if (_serviceProvider.GetService(interfaceType) is not IMappingProfile<TSource, TDestination> type)
-            throw new NotImplementedException($"Can not found the mapper for the types Source: {typeof(TSource)} || Destination: {typeof(TDestination)}");
+        return mapper.Map(source);
+    }
 
-        return type.Map(source);
+    public IEnumerable<TDestination> Map<TSource, TDestination>(IEnumerable<TSource> source)
+    {
+        var mapper = GetMapper<TSource, TDestination>();
+
+        return source.Select(mapper.Map);
+    }
+
+    public List<TDestination> MapToList<TSource, TDestination>(IEnumerable<TSource> source)
+    {
+        var mapper = GetMapper<TSource, TDestination>();
+
+        return source.Select(mapper.Map).ToList();
+    }
+
+    public TDestination[] MapToArray<TSource, TDestination>(IEnumerable<TSource> source)
+    {
+        var mapper = GetMapper<TSource, TDestination>();
+
+        return source.Select(mapper.Map).ToArray();
     }
 
     public TDestination MapUsingReflection<TSource, TDestination>(TSource source)
@@ -49,4 +67,14 @@ public class CustomMapper : IMapper
 
         return (TDestination)method?.Invoke(instance, new[] { source })!;
     }
+
+    private IMappingProfile<TSource, TDestination> GetMapper<TSource, TDestination>()
+    {
+        var interfaceType = typeof(IMappingProfile<TSource, TDestination>);
+
+        if (_serviceProvider.GetService(interfaceType) is not IMappingProfile<TSource, TDestination> mapper)
+            throw new NotImplementedException($"Can not found the mapper for the types Source: {typeof(TSource)} || Destination: {typeof(TDestination)}");
+
+        return mapper;
+    }    
 }
